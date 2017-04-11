@@ -20,21 +20,21 @@ public class AssignmentFive {
     static long comparisonsFound = 0;
     static long comparisonsNotFound = 0;
 
-    BinarySearchTree[] list = new BinarySearchTree[26];//make binary search tree of size 26
+    BinarySearchTree[] tree = new BinarySearchTree[26];//make binary search tree of size 26
 
     /**
      * This method will read the dictionary and load each word into the correct
      * tree based on the first character of the word(alphabetically).
      */
     private void populateDictionary() {
-        for (int i = 0; i < list.length; i++) {
-            list[i] = new BinarySearchTree<String>();//instantiate 26 binary search trees
+        for (int i = 0; i < tree.length; i++) {
+            tree[i] = new BinarySearchTree<String>();//instantiate 26 binary search trees
         }//for
         try {
             Scanner dictReader = new Scanner(new File("random_dictionary (2).txt"));//read file
             while (dictReader.hasNext()) {
                 String word = dictReader.next().toLowerCase();//lowercase everything
-                list[(int)word.charAt(0) - 97].insert(word);//word to correct tree based off first letter(ASCII)
+                tree[(int)word.charAt(0) - 97].insert(word);//word to correct tree based off first letter(ASCII)
             }//while
             dictReader.close();
         }//try 
@@ -61,7 +61,7 @@ public class AssignmentFive {
                     words = bookReader.next().toLowerCase().replaceAll("[^a-z]", "");//replace all special characters
                 }//while
                 int[] count = new int[1];//integer array with 1 element
-                if (list[(int)words.charAt(0) - 97].search(words, count)) {//goes to correct tree and checks if word is contained
+                if (tree[(int)words.charAt(0) - 97].search(words, count)) {//goes to correct tree and checks if word is contained
                     wordsFound++;//add to found if it is there
                     comparisonsFound+=count[0];//number of comparisons to find words
                 }//if
