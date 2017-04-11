@@ -1,9 +1,17 @@
+/**
+* Nick Tinsley
+* Assignment 5
+* 4/11/17
+*/
 package assignmentfive;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * @author Nick Tinsley
+ */
 public class AssignmentFive {
 
 //instantiate 
