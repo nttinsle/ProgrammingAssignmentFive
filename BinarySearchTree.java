@@ -1,7 +1,15 @@
+/**
+ * Nick Tinsley
+ * Assignment 5
+ * 4/11/17
+ */
 package assignmentfive;
 
 import java.util.*;
 
+/**
+ * @author Nick Tinsley
+ */
 public class BinarySearchTree<E extends Comparable<E>> extends AbstractTree<E> {
 
     protected TreeNode<E> root;
