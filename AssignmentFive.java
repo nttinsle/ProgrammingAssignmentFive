@@ -19,6 +19,8 @@ public class AssignmentFive {
     static int wordsNotFound = 0;
     static long comparisonsFound = 0;
     static long comparisonsNotFound = 0;
+    static double averageFound = 0;
+    static double averageNotFound = 0;
 
     BinarySearchTree[] tree = new BinarySearchTree[26];//make binary search tree of size 26
 
@@ -63,11 +65,13 @@ public class AssignmentFive {
                 int[] count = new int[1];//integer array with 1 element
                 if (tree[(int)words.charAt(0) - 97].search(words, count)) {//goes to correct tree and checks if word is contained
                     wordsFound++;//add to found if it is there
-                    comparisonsFound+=count[0];//number of comparisons to find words
+                    double f = (double)(comparisonsFound+=count[0]);//number of comparisons to find words
+                    averageFound = (double)(f/wordsFound);
                 }//if
                 else {
                     wordsNotFound++;//add to not found if it is not there
-                    comparisonsNotFound+=count[0];//number of comparisons to not find words
+                    double nf = (double)(comparisonsNotFound+=count[0]);//number of comparisons to not find words
+                    averageNotFound = (double)(nf/wordsNotFound);
                     System.out.println("Not found: " + words);
                 }//else
             }//while
@@ -92,7 +96,7 @@ public class AssignmentFive {
         System.out.println("Words not found " + wordsNotFound);
         System.out.println("Comparisons found " + comparisonsFound);
         System.out.println("Comparisons not found " + comparisonsNotFound);
-        System.out.println("Average number of comparisons per word found " + comparisonsFound / wordsFound);
-        System.out.println("Average number of comparisons per word not found " + comparisonsNotFound / wordsNotFound);
+        System.out.println("Average number of comparisons per word found " + averageFound);
+        System.out.println("Average number of comparisons per word not found " + averageNotFound);
     }//main
 }//class
